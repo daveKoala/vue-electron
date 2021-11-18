@@ -42,6 +42,13 @@ export default defineComponent({
   props: {
     msg: String,
   },
+  mounted() {
+    console.log('mounted');
+
+    window.ipcRenderer.on('readyToRock', (payload: unknown) => {
+      console.log({ payload });
+    });
+  },
 });
 </script>
 
